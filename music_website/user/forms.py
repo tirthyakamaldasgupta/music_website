@@ -12,7 +12,7 @@ class UserRegisterForm(forms.Form):
     username = forms.CharField(label = 'Username')
     password = forms.CharField(label = 'Password', widget=forms.PasswordInput, required = True)
     confirm_password = forms.CharField(label = 'Confirm password', widget=forms.PasswordInput, required = True)
-    type_of_users = forms.ChoiceField(choices = types_of_users_list, required = True)
+    type_of_users = forms.ChoiceField(label = 'Who are you?', choices = types_of_users_list, required = True)
 
     def clean_username(self):
         username = self.cleaned_data['username']
