@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib import sessions, messages, auth
 from .forms import UserRegisterForm
@@ -44,3 +45,19 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+def dashboard(request):
+    user = request.user
+    if user.is_authenticated:
+        if hasattr(user, 'additionallistenerdetail') == True:
+            return render(request, 'user/listener_dashboard.html', {'user' : user})
+        elif hasattr(user, 'additionalartistdetail') == True:
+            return render(request, 'user/artist_dashboard.html', {'user' : user})
+        '''listener = user.additionallistenerdetail.user_id
+        artist = user.additionalartistdetail.user_id
+        if user.id == user.additionallistenerdetails.user_id:
+            return render(request, 'user/listener_dashboard')
+        elif user.id == user.additionalartistdetails.user_id:
+            return render(request, 'user/artist_dashboard')'''
+    
+
