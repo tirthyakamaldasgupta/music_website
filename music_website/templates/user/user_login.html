@@ -1,16 +1,35 @@
 {% extends 'main/overall_base.html' %}
-{% load crispy_forms_tags %}
 {% block title %}LOGIN{% endblock %}
 {% block body %}
 <br>
+
 <center>
-    <form method="POST">
-        {% csrf_token %}
-        {{ userloginform | crispy }}
-        <br>
-        <input type = "submit" name = "submit" value = "Login">
-    </form>
+    <div class="col-sm-5">
+        <div class="card text-center">
+            <div class="card-header">
+                USER LOGIN
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col">
+                            {{ userloginform.username.label.upper }}
+                            {{ userloginform.username }}
+                        </div>
+                        <div class="col">
+                            {{ userloginform.password.label.upper }}
+                            {{ userloginform.password }}
+                        </div>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">LOGIN</button>
+                </form>
+            </div>
+        </div>
+    </div>
     <br>
-    <h5>Not registered yet? <a href="{% url 'register' %}">Click here</a> to register.</h5>
+    Not registered yet? <a href="{% url 'register' %}">Click here</a> to register.
 </center>
 {% endblock %}
+    
