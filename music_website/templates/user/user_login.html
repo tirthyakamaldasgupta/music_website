@@ -1,35 +1,34 @@
 {% extends 'main/overall_base.html' %}
 {% block title %}LOGIN{% endblock %}
 {% block body %}
-<br>
-
-<center>
-    <div class="col-sm-5">
-        <div class="card text-center">
-            <div class="card-header">
-                USER LOGIN
-            </div>
-            <div class="card-body">
-                <form method="POST">
-                    {% csrf_token %}
-                    <div class="row">
-                        <div class="col">
-                            {{ userloginform.username.label.upper }}
-                            {{ userloginform.username }}
+    <br>
+    <center>
+        <div class="col-sm-5">
+            <div class="card text-center">
+                <div class="card-header">
+                    USER LOGIN
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col">
+                                {{ userloginform.username.label.upper }}
+                                {{ userloginform.username }}
+                            </div>
+                            <div class="col">
+                                {{ userloginform.password.label.upper }}
+                                {{ userloginform.password }}
+                            </div>
                         </div>
-                        <div class="col">
-                            {{ userloginform.password.label.upper }}
-                            {{ userloginform.password }}
-                        </div>
-                    </div>
-                    <br>
-                    <button type="submit" class="btn btn-primary">LOGIN</button>
-                </form>
+                        <br>
+                        <button type="submit" class="btn btn-primary">LOGIN</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-    <br>
-    Not registered yet? <a href="{% url 'register' %}">Click here</a> to register.
-</center>
+        <br>
+        Not registered yet? <a href="{% url 'register' %}">Click here</a> to register.
+    </center>
 {% endblock %}
     
