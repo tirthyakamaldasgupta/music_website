@@ -1,34 +1,38 @@
 {% extends 'main/overall_base.html' %}
+{% load widget_tweaks %}
 {% block title %}LOGIN{% endblock %}
 {% block body %}
-    <br>
-    <center>
-        <div class="col-sm-5">
-            <div class="card text-center">
+<br>
+<div>
+    <div class="row">
+        <div class="col-auto col-lg-6 col-xl-6 offset-lg-0 offset-xl-3 text-left text-dark">
+            <div class="card bg-light border-primary">
                 <div class="card-header">
-                    USER LOGIN
+                    <strong>LOGIN</strong>
                 </div>
-                <div class="card-body">
-                    <form method="POST">
-                        {% csrf_token %}
-                        <div class="row">
-                            <div class="col">
-                                {{ userloginform.username.label.upper }}
-                                {{ userloginform.username }}
+                <div class="card-body border-primary">
+                    <div class="form-group">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                <div class="col">
+                                    {% render_field userloginform.username class="form-control" placeholder="Username" %}
+                                </div>
+                                <div class="col">
+                                    {% render_field userloginform.password class="form-control" placeholder="Password" %}
+                                </div>
                             </div>
-                            <div class="col">
-                                {{ userloginform.password.label.upper }}
-                                {{ userloginform.password }}
-                            </div>
-                        </div>
-                        <br>
-                        <button type="submit" class="btn btn-primary">LOGIN</button>
-                    </form>
+                            <br>
+                            <button type="submit" class="btn btn-primary">LOGIN</button>
+                        </form>
+                    </div> 
+                </div>
+                <div class="card-footer">
+                    Not registered yet? <a href="{% url 'register' %}">Click here</a> to register.
                 </div>
             </div>
         </div>
-        <br>
-        Not registered yet? <a href="{% url 'register' %}">Click here</a> to register.
-    </center>
+    </div>
+</div>
 {% endblock %}
     

@@ -20,7 +20,7 @@ def register(request):
             elif userregistrationform.cleaned_data['type_of_users'] == '2':
                 addaddtionalartistdetails = AdditionalArtistDetail(user = user)
                 addaddtionalartistdetails.save()
-            return redirect('userlogin')
+            return redirect('login')
     else:
         userregistrationform = UserRegisterForm()
     return render(request, 'user/user_register.html', {'userregistrationform' : userregistrationform})

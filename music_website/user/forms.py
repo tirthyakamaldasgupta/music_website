@@ -6,14 +6,14 @@ types_of_users_list = [('1', 'Listener'), ('2', 'Artist')]
 
 class UserRegisterForm(forms.Form):
     first_name = forms.CharField(required = True)
-    last_name = forms.CharField()
+    last_name = forms.CharField(required = True)
     email = forms.EmailField(required = True)
     confirm_email = forms.EmailField(required = True)
-    username = forms.CharField(label = 'Username')
-    password = forms.CharField(label = 'Password', widget=forms.PasswordInput, required = True)
-    confirm_password = forms.CharField(label = 'Confirm password', widget=forms.PasswordInput, required = True)
-    type_of_users = forms.ChoiceField(label = 'Who are you?', choices = types_of_users_list, required = True)
-
+    username = forms.CharField(required = True)
+    password = forms.CharField(required = True, widget=forms.PasswordInput)
+    confirm_password = forms.CharField(required = True, widget=forms.PasswordInput)
+    type_of_users = forms.ChoiceField(label = 'Who are you? *', required = True, choices = types_of_users_list)
+    
     def clean_username(self):
         username = self.cleaned_data['username']
         user = User.objects.filter(username = username)
