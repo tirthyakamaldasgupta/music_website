@@ -13,7 +13,6 @@ def register(request):
             userregistrationform.save()
             username = userregistrationform.cleaned_data['username']
             user = User.objects.get(username = username)
-            print(userregistrationform.cleaned_data['type_of_users'])
             if userregistrationform.cleaned_data['type_of_users'] == '1':
                 addaddtionallistenerdetails = AdditionalListenerDetail(user = user)
                 addaddtionallistenerdetails.save()
