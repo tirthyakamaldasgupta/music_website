@@ -9,6 +9,10 @@ class Genre(models.Model):
     id = models.BigAutoField(primary_key=True)
     name = models.CharField(unique=True, null=False, max_length=255)
 
+class Language(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    name = models.CharField(unique=True, null=False, max_length=255)
+
 class Album(models.Model):
     id = models.BigAutoField(primary_key=True)
     name = models.CharField(unique=True, null=False, max_length=255)
@@ -19,6 +23,7 @@ class Song(models.Model):
     name = models.CharField(unique=True, null=False, max_length=255)
     genre_id = models.ForeignKey(Genre, null=False, on_delete=models.CASCADE)
     album_id = models.ForeignKey(Album, null=False, on_delete=models.CASCADE)
+    language_id = models.ForeignKey(Language, null=False, on_delete=models.CASCADE)
     datetime = models.DateTimeField(null=False)
 
 class Continent(models.Model):
