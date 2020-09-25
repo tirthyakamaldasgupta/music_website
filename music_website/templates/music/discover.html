@@ -15,7 +15,15 @@
     <ul>
         {% for artist in artists %}
             <li>
-                {{ artist.user.first_name }}
+                {{ artist.user.first_name }} {{ artist.user.last_name }}
+            </li>
+        {% endfor %}
+    </ul>
+    <h5>Languages:</h5>
+    <ul>
+        {% for language in languages %}
+            <li>
+                {{ language.name }}
             </li>
         {% endfor %}
     </ul>
