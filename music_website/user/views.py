@@ -53,11 +53,5 @@ def dashboard(request):
             return render(request, 'user/listener_dashboard.html', {'user' : user})
         elif hasattr(user, 'additionalartistdetail') == True:
             return render(request, 'user/artist_dashboard.html', {'user' : user})
-        '''listener = user.additionallistenerdetail.user_id
-        artist = user.additionalartistdetail.user_id
-        if user.id == user.additionallistenerdetails.user_id:
-            return render(request, 'user/listener_dashboard')
-        elif user.id == user.additionalartistdetails.user_id:
-            return render(request, 'user/artist_dashboard')'''
     
 

@@ -1,11 +1,47 @@
+{% load static %}
+<!--<nav class="navbar sticky-top navbar-expand-sm navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <br>
+        <ul class="navbar-nav mr-auto">
+            {% if user.is_authenticated %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'index' %}">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'dashboard' %}">Dashboard<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout<span class="sr-only">(current)</span></a>
+                </li>   
+            {% else %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'index' %}">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'register' %}">Register<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'login' %}">Login<span class="sr-only">(current)</span></a>
+                </li>
+            {% endif %}
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>-->
+
 <center>
-{% if user.is_authenticated %}
-    <a href="{% url 'index' %}">Home</a>
-    <a href="{% url 'dashboard' %}">Dashboard</a>
-    <a href="{% url 'logout' %}">Logout</a>
-{% else %}
-<a href="{% url 'index' %}">Home</a>    
-<a href="{% url 'register' %}">Register</a>
-    <a href="{% url 'login' %}">Login</a>
-{% endif %}
+    {% if user.is_authenticated %}
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'dashboard' %}">Dashboard</a>
+        <a href="{% url 'index' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'register' %}">Register</a>
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
 </center>
+
+
