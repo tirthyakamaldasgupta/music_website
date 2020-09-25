@@ -1,0 +1,22 @@
+{% extends 'main/overall_base.html' %}
+{% load static %}
+{% block title %}REGISTER{% endblock %}
+{% block body %}
+    <br>
+    <h5>Genres:</h5>
+    <ul>
+        {% for genre in genres %}
+            <li>
+                {{ genre.name }}
+            </li>
+        {% endfor %}
+    </ul>
+    <h5>Artists:</h5>
+    <ul>
+        {% for artist in artists %}
+            <li>
+                {{ artist.user.first_name }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
